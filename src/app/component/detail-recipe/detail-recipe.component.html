@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+<div  class="recipe-container">
+  <div class="recipe-grid">
+    <div>
+      <h1>{{ recipe.name }}</h1>
+      <img class="recipe-image" src="{{recipe.bildPfad}}" height="250" width="200" alt="{{recipe.name}}">
+      <h4>Zutaten:</h4>
+      <div *ngFor="let r of this.recipe.zutaten">
+        <li>{{ r }}</li>
+      </div>
+      <h4>Anleitung:</h4>
+      <p>{{ recipe.beschreibung }}</p>
+      <h4>Bewertung:</h4>
+      <button class="bewertung-sterne" (click)="countStars(1)">⭐️</button>
+      <button class="bewertung-sterne" (click)="countStars(2)">⭐️</button>
+      <button class="bewertung-sterne" (click)="countStars(3)">⭐️</button>
+      <button class="bewertung-sterne" (click)="countStars(4)">⭐️</button>
+      <button class="bewertung-sterne" (click)="countStars(5)">⭐️</button>
+
+      <br>
+      <h4>Deine Bewertung: </h4>
+
+      <p *ngFor="let n of getStars(recipe.bewertung); let i = index;" class="bewertung-sterne">⭐️</p>
+
+      <br>
+
+      <button class="formButton" type="submit" (click)="rezeptEntfernen()" >Rezept entfernen</button>
+
+      <!---Kommentare--->
+      <h4>Kommentare: </h4>
+      <div class="kommentare">
+        <p>{{ recipe.kommentar }}</p>
+      </div>
+
+      <form [formGroup]="regForm!" id="formAll">
+        <div class="formCss">
+          <label for="kommentar" ></label>
+          <br>
+          <input type="text" id="kommentar" class="form-control" formControlName="kommentar" placeholder="neuer Kommentar">
+          <br>
+        </div>
+        <button class="formButtonComment" type="submit" (click)="newComment()">absenden</button>
+        <div class="response">{{ responseText }}</div>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+
+

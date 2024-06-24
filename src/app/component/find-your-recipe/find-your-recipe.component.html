@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<h2>Finde ein passendes Rezept für dich!</h2>
+
+<div id="findYourRecipe">
+  <div class="nav-item">
+    <input type="text" id="searchInputRecipe" [(ngModel)]="filter" placeholder="Rezepte suchen" (input)="filterRecipes()">
+  </div>
+
+
+  <div class="nav-item">
+    <input type="text" id="searchInputIngredients" [(ngModel)]="filterIngredients" placeholder="Zutaten suchen" (input)="filterRecipesByIngredients()">
+  </div>
+
+</div>
+
+<div *ngIf="filteredRecipes && filteredRecipes.length" class="recipe-container">
+  <div class="recipe-grid">
+      <div *ngFor="let recipe of filteredRecipes" class="recipe-item">
+
+        <h2>{{ recipe.name }}</h2>
+
+        <img class="recipe-image" src="{{recipe.bildPfad}}" height="250" width="200" alt="{{recipe.name}}">
+
+        <div *ngFor="let zutat of recipe.zutaten">
+          <li >
+            {{ zutat }}
+          </li>
+        </div>
+        <div routerLinkActive="active-link" class="link">
+          <a [routerLink]="'/detail/' + recipe.id" [routerLinkActive]="'active'">Details</a>
+        </div>
+      </div>
+  </div>
+</div>

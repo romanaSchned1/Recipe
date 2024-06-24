@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+
+<div *ngIf="recipes" class="recipe-container">
+  <h2>Alle Rezepte</h2>
+  <div class="recipe-grid">
+      <div *ngFor="let r of this.recipes">
+        <h3>{{ r.name }}</h3>
+        <img class="recipe-image" src="{{r.bildPfad}}" height="250" width="200" alt="{{r.name}}">
+        <br>
+        <p *ngFor="let n of getStars(r.bewertung); let i = index;" class="bewertung-sterne">⭐️</p>
+        <div routerLinkActive="active-link" class="link">
+          <a [routerLink]="'/detail/' + r.id" [routerLinkActive]="'active'">Details</a>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+

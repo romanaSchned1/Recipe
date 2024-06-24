@@ -1,0 +1,62 @@
+<app-header></app-header>
+
+<form [formGroup]="regForm!" id="formAll">
+
+  <h2 class="headline">Neues Rezept anlegen</h2>
+
+  <div class="formCss">
+    <label for="erstellerName">Erstellername:</label>
+    <input type="text" id="erstellerName" class="form-control" formControlName="erstellerName">
+    <br>
+    <span *ngIf="!regForm!.get('erstellerName')?.valid && regForm!.get('erstellerName')?.touched"
+          class="help-block">Name wird benötigt!</span>
+  </div>
+
+  <div class="formCss">
+    <label for="name">Rezeptname:</label>
+    <input type="text" id="name" class="form-control" formControlName="name">
+    <br>
+    <span *ngIf="!regForm!.get('name')?.valid && regForm!.get('name')?.touched"
+          class="help-block">Rezeptname wird benötigt!</span>
+  </div>
+
+  <div class="formCss">
+    <label for="zutaten">Zutaten: </label>
+    <input type="text" id="zutaten" class="form-control" formControlName="zutaten">
+    <br>
+    <span *ngIf="!regForm!.get('zutaten')?.valid && regForm!.get('zutaten')?.touched"
+          class="help-block">Zutaten werden benötigt!</span>
+  </div>
+
+  <div class="formCss">
+    <label for="beschreibung">Beschreibung:</label>
+    <input type="text" id="beschreibung" class="form-control" formControlName="beschreibung">
+    <br>
+    <span *ngIf="!regForm!.get('beschreibung')?.valid && regForm!.get('beschreibung')?.touched"
+          class="help-block">Beschreibung wird benötigt!</span>
+  </div>
+
+  <div class="formCss">
+    <label for="bildPfad">Bild: </label>
+    <input type="text" id="bildPfad" class="form-control" formControlName="bildPfad">
+    <br>
+  </div>
+
+  <!--<div class="formCss">
+    <label for="kommentar">Kommentar: </label>
+    <input type="text" id="kommentar" class="form-control" formControlName="kommentar">
+    <br>
+  </div>
+
+  <div class="formCss">
+    <label for="bewertung">bewertung: </label>
+    <input type="number" id="bewertung" class="form-control" formControlName="bewertung">
+    <br>
+  </div>-->
+
+  <button class="formButton" type="submit" [disabled]="!regForm?.valid" (click)="onSubmit()" routerLink="/all">speichern</button>
+
+  <div class="response">{{ responseText }}</div>
+
+</form>
+

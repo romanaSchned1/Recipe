@@ -1,0 +1,53 @@
+
+span{
+  color: #800505;
+  font-size: 0.7rem;
+}
+
+#formAll{
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 5vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  padding-bottom: 5vh;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+label {
+  display: flex;
+  margin-top: 3vh;
+  width: 60vw;
+}
+
+button:hover {
+  background-color: #9f6a6a;
+  color: #fff;
+}
+
+input{
+  width: 15vw;
+}
+
+button{
+  margin-top: 4vh;
+  width: 15.7vw;
+  margin-left: 20vw;
+}
+
+.formCss{
+  margin-left: 20vw;
+}
+
+.headline{
+  text-align: center;
+}
+
+.response {
+  color: #555;
+  font-size: 1rem;
+  margin-top: 3vh;
+  text-align: center;
+}
